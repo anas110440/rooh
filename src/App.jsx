@@ -30,7 +30,7 @@ export function App() {
       <ambientLight intensity={1} />
       <PMO scale={0.08} position={[0, 0, 0]} />
       <AccumulativeShadows
-        position={[0, -3.7, 0]}
+        position={[0, -3.6, 0]}
         frames={100}
         alphaTest={0.9}
         scale={4}
