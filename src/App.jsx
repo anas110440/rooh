@@ -27,7 +27,7 @@ export function App() {
         intensity={2}
         shadow-bias={-0.0001}
       />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.75} />
       <PMO scale={0.08} position={[0, 0, 0]} />
       <AccumulativeShadows
         position={[0, -3.7, 0]}
@@ -49,7 +49,7 @@ export function App() {
         frames={degraded ? 1 : Infinity}
         resolution={256}
         background
-        blur={1}
+        blur={2}
       >
         <Lightformers />
       </Environment>
@@ -78,16 +78,19 @@ function PMO(props) {
       color: '#ebc283',
       roughness: 0.6,
       roughnessMap: null,
+      metalness: 1.2,
     });
     applyProps(materials.mat3, {
       color: '#272727',
       roughness: 0.6,
       roughnessMap: null,
+      metalness: 1,
     });
     applyProps(materials.mat4, {
       color: '#272727',
       roughness: 0.6,
       roughnessMap: null,
+      metalness: 1,
     });
     applyProps(materials.mat5, {
       color: '#272727',
@@ -98,11 +101,13 @@ function PMO(props) {
       color: '#ebc283',
       roughness: 0.6,
       roughnessMap: null,
+      metalness: 1,
     });
     applyProps(materials.mat7, {
       color: '#272727',
       roughness: 0.6,
       roughnessMap: null,
+      metalness: 1,
     });
   }, [nodes, materials]);
   return <primitive object={scene} {...props} />;
@@ -138,8 +143,8 @@ function Lightformers({ positions = [2, 0, 2, 0, 2, 0, 2, 0] }) {
     <>
       {/* Ceiling */}
       <Lightformer
-        intensity={0.75}
-        rotation-x={Math.PI / 2}
+        intensity={1}
+        rotation-y={Math.PI / 2}
         position={[0, 5, -9]}
         scale={[10, 10, 1]}
       />
