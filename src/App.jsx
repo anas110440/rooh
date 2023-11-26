@@ -18,7 +18,7 @@ import { LayerMaterial, Color, Depth } from 'lamina';
 export function App() {
   const [degraded, degrade] = useState(false);
   return (
-    <Canvas shadows camera={{ position: [5, 0, 15], fov: 30 }}>
+    <Canvas shadows camera={{ position: [5, 5, 15], fov: 30 }}>
       <spotLight
         position={[0, 15, 0]}
         angle={0.3}
@@ -27,7 +27,7 @@ export function App() {
         intensity={2}
         shadow-bias={-0.0001}
       />
-      <ambientLight intensity={0.75} />
+      <ambientLight intensity={1} />
       <PMO scale={0.08} position={[0, 0, 0]} />
       <AccumulativeShadows
         position={[0, -3.7, 0]}
@@ -180,16 +180,14 @@ function Lightformers({ positions = [2, 0, 2, 0, 2, 0, 2, 0] }) {
         scale={[20, 1, 1]}
       />
       {/* Accent (red) */}
-      <Float speed={5} floatIntensity={2} rotationIntensity={2}>
-        <Lightformer
-          form="ring"
-          color="white"
-          intensity={1}
-          scale={10}
-          position={[-15, 4, -18]}
-          target={[0, 0, 0]}
-        />
-      </Float>
+      <Lightformer
+        form="ring"
+        color="white"
+        intensity={3}
+        scale={10}
+        position={[0, 15, -10]}
+        target={[0, 0, 0]}
+      />
       {/* Background */}
       <mesh scale={100}>
         <sphereGeometry args={[1, 64, 64]} />
